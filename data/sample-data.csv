@@ -1,0 +1,6 @@
+severity_or_type,finding,business_impact,recommended_action
+High,Former contractor account still active,Offboarding gap creates unauthorized access risk.,"Validate evidence, assign owner, document remediation, and retest."
+High,Sales user has admin access,Permission does not match job function.,"Validate evidence, assign owner, document remediation, and retest."
+Medium,Shared admin account exists,No accountability or user-level audit trail.,"Validate evidence, assign owner, document remediation, and retest."
+Medium,Finance role can access support tickets,Possible exposure to unnecessary customer data.,"Validate evidence, assign owner, document remediation, and retest."
+Low,Naming convention inconsistent,Makes access review harder and increases operational error.,"Validate evidence, assign owner, document remediation, and retest."
