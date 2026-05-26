@@ -2,134 +2,90 @@
 
 ## Overview
 
-This repository contains an identity and access management governance package for a simulated small business. It demonstrates how access is requested, approved, reviewed, reduced, and removed using least privilege and role-based access control.
+This is an IAM governance lab for a simulated small business. It reviews user access, role fit, MFA requirements, privileged access, and offboarding gaps.
 
-The work is built around operational IAM, not just policy writing. It includes access review evidence, a role-based access matrix, privileged access approval workflow, MFA enforcement tracking, and joiner/mover/leaver process documentation.
+The project is intentionally practical. It is less about theory and more about the kind of access cleanup that happens in real SaaS environments: someone changed roles, a contractor stayed active too long, a user has more access than they need, and admin access needs a better approval trail.
 
-> All users, systems, access levels, and evidence are synthetic and safe for public use.
-
----
-
-## Business Scenario
-
-Northstar Dental Billing LLC has grown quickly and accumulated access across email, file storage, billing, CRM, project management, and admin consoles. The company needs a repeatable process to reduce excessive access, remove former users, validate privileged access, and prepare for customer security reviews.
-
-The IAM review answers five questions:
-
-1. Who has access?
-2. Does access match the user’s role?
-3. Which access should be kept, reduced, removed, or approved?
-4. Which systems require MFA?
-5. What evidence proves access was reviewed?
+All names, systems, and access decisions are synthetic.
 
 ---
 
-## Target Roles
+## What I reviewed
 
-| Role | Why This Repository Fits |
+| Evidence | Location |
 |---|---|
-| IAM Analyst | Shows access review, RBAC, privileged access, MFA enforcement, and JML lifecycle |
-| GRC Analyst | Demonstrates access governance, evidence retention, and review cadence |
-| Security Implementation Specialist | Connects SaaS administration to security process design |
-| Security Solutions Consultant | Shows how IAM controls support customer assurance and operational security |
+| Access review sample | `data/access-review-sample.csv` |
+| RBAC matrix | `data/rbac-matrix.csv` |
+| MFA enforcement matrix | `data/mfa-enforcement-matrix.csv` |
+| Privileged access register | `data/privileged-access-register.csv` |
+| JML workflow | `iam-governance/joiner-mover-leaver-workflow.md` |
+| Quarterly review process | `iam-governance/quarterly-access-review-process.md` |
 
 ---
 
-## Core Deliverables
+## Initial observations
 
-| Area | Deliverables |
-|---|---|
-| Access Governance | Access request form, quarterly review process, decision criteria |
-| JML Lifecycle | Joiner/mover/leaver workflow and offboarding evidence |
-| RBAC | Role-based access matrix and approved access examples |
-| Privileged Access | Admin approval workflow and privileged access register |
-| MFA Governance | MFA enforcement matrix by system and user population |
-| Evidence | CSV review data, screenshots, remediation tracker, final report |
+The first pass looked mostly normal until the former contractor account appeared. That changed the priority. A former user with active access is usually more urgent than a current employee with slightly excessive permissions.
+
+The second issue was privileged access. Admin access was not automatically wrong, but it needed clearer approval evidence and review timing.
 
 ---
 
-## Joiner / Mover / Leaver Workflow
+## Screenshots
+
+### JML workflow
 
 ![JML Workflow](./screenshots/jml-workflow.svg)
 
----
-
-## Access Review Dashboard
-
-The access review sheet shows how user access is reviewed against role, business need, and least privilege.
+### Access review dashboard
 
 ![Access Review Dashboard](./screenshots/access-review-dashboard.svg)
 
----
-
-## Role-Based Access Matrix
-
-The RBAC matrix defines approved access by role so access decisions are consistent and auditable.
+### RBAC matrix
 
 ![RBAC Matrix](./screenshots/rbac-matrix.svg)
 
----
-
-## MFA Enforcement Matrix
-
-The MFA matrix connects authentication requirements to systems and user populations.
+### MFA enforcement matrix
 
 ![MFA Enforcement Matrix](./screenshots/mfa-enforcement-matrix.svg)
 
----
-
-## Privileged Access Register
-
-Privileged access is tracked separately because admin rights require stronger approval and review.
+### Privileged access register
 
 ![Privileged Access Register](./screenshots/privileged-access-register.svg)
 
 ---
 
-## Repository Structure
+## Access decisions
 
-```text
-.
-├── README.md
-├── CHANGELOG.md
-├── COMMIT_GUIDE.md
-├── iam-governance/
-├── evidence/
-├── data/
-├── technical-validation/
-├── reports/
-├── screenshots/
-└── templates/
-```
-
----
-
-## Key Evidence Files
-
-| File | Purpose |
+| Decision | Analyst reasoning |
 |---|---|
-| `data/access-review-sample.csv` | Quarterly access review sample |
-| `data/rbac-matrix.csv` | Approved access by role |
-| `data/mfa-enforcement-matrix.csv` | MFA requirement tracking |
-| `data/privileged-access-register.csv` | Admin access decision evidence |
-| `iam-governance/joiner-mover-leaver-workflow.md` | Access lifecycle workflow |
-| `iam-governance/quarterly-access-review-process.md` | Repeatable access review process |
-| `reports/final-report.md` | Summary of review decisions and remediation |
+| Keep | Access matched role and business need |
+| Reduce | User still needed access, but not at the current permission level |
+| Remove | Access no longer had a valid business reason |
+| Approve | Privileged access was justified but needed explicit documentation |
+| Investigate | More context would be needed before changing access |
 
 ---
 
-## How This Would Operate in a Real Company
+## What I could confirm
 
-1. Managers submit access requests based on job role.
-2. Access is assigned using the RBAC matrix.
-3. Privileged access requires documented approval.
-4. Role changes trigger mover reviews.
-5. Departures trigger same-day access removal.
-6. Quarterly access reviews confirm access is still appropriate.
-7. Evidence is retained for customer assurance and audit readiness.
+- The access review process identifies keep/reduce/remove decisions.
+- Role-based access examples are documented.
+- MFA requirements are mapped by system.
+- Privileged access is separated from standard access.
+
+## What I could not confirm
+
+- No real SaaS admin export was reviewed.
+- No live identity provider was checked.
+- The access review does not prove SOX compliance.
+- The RBAC matrix is a starting point and would need business owner validation.
 
 ---
 
-## Limitations
+## Next steps
 
-This is not a production IAM audit or SOX control test. It is a synthetic IAM governance package that demonstrates access review logic, least privilege, and operational process design.
+1. Add a lab export from Google Workspace, Microsoft Entra, Okta, or another SaaS admin console.
+2. Track one access review cycle from request to remediation.
+3. Add evidence of removed or reduced access.
+4. Add temporary access expiration examples.

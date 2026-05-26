@@ -1,11 +1,24 @@
 # Final Report
 
-The IAM review identified access that should be kept, reduced, removed, or explicitly approved. The highest-priority issues were former contractor access, privileged access validation, and excessive customer export permissions.
+## Summary
 
-## Recommendations
+This IAM review identified access that should be kept, reduced, removed, or formally approved. The highest-priority issue was active access for a former contractor. The second priority was privileged access that needed better approval evidence.
 
-1. Remove former contractor access immediately.
-2. Reduce sales access to customer export folders.
-3. Maintain a privileged access register.
-4. Require MFA for all business-critical applications.
-5. Repeat access reviews quarterly.
+## Initial observations
+
+Most access did not look obviously wrong at first. The review became more useful after comparing access against user role and employment status.
+
+## What could not be confirmed
+
+- Whether users actually used the access recently.
+- Whether the business owners would approve every RBAC assumption.
+- Whether MFA was enforced in a real tenant.
+- Whether any access was temporary and should have expired.
+
+## Recommended next steps
+
+1. Remove former contractor access.
+2. Reduce unnecessary customer export access.
+3. Confirm MFA enforcement for all critical systems.
+4. Review privileged access quarterly.
+5. Add evidence from a real SaaS admin lab in a future version.

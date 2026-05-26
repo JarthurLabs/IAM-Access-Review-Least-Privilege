@@ -1,5 +1,12 @@
 # Changelog
 
+## v5.0 - Operational Realism Pass
+
+- Made access review reasoning more natural and less template-like
+- Added clearer uncertainty around missing SaaS exports and owner validation
+- Reframed privileged access as a validation issue
+- Added REALISM_REVIEW_NOTES.md and LESSONS_LEARNED.md
+
 ## v2.0 - Evidence-of-Work Upgrade
 
 ### Added
