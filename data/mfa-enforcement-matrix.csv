@@ -1,0 +1,6 @@
+system,population,requirement,status
+Email,All users,Required,Implemented
+Admin Console,Admins only,Required,Implemented
+Billing App,All users,Required,In Progress
+CRM,All users,Required,Implemented
+Project Management,All users,Recommended,Planned

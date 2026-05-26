@@ -1,0 +1,5 @@
+request_id,system,user,access_level,decision,condition
+PAM-001,Google Admin Console,Ravi Patel,Super Admin,Approved,Quarterly review required
+PAM-002,CRM Admin,Maya Turner,Admin,Approved,Business owner approval retained
+PAM-003,Billing App Admin,Keisha Davis,Admin,Pending,Awaiting manager approval
+PAM-004,Shared Admin Account,Legacy,Admin,Remove,Replace with named admin accounts

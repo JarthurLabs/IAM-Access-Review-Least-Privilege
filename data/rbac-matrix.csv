@@ -1,0 +1,7 @@
+role,application,approved_access,business_justification
+Billing Specialist,Billing App,Editor,Needed for daily billing tasks
+Billing Specialist,CRM,Viewer,View customer records only
+Finance Analyst,Billing App,Editor,Reconciliation duties
+Sales Associate,CRM,Editor,Customer updates
+Operations Manager,CRM Admin,Admin,Workflow ownership
+IT Administrator,Admin Console,Super Admin,System administration

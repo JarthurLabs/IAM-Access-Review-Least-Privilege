@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760">
+<rect width="1280" height="760" fill="#f8fafc"/>
+<rect x="20" y="20" width="1240" height="720" rx="24" fill="#e2e8f0"/>
+<rect x="40" y="40" width="1200" height="96" rx="16" fill="#0f172a"/>
+<text x="70" y="82" font-size="30" font-family="Arial" fill="#ffffff" font-weight="700">Role-Based Access Matrix</text>
+<text x="70" y="114" font-size="18" font-family="Arial" fill="#cbd5e1">Approved access levels by job role and business justification</text>
+<rect x="40" y="170" width="300" height="54" fill="#1e293b" stroke="#334155"/>
+<text x="52" y="203" font-size="16" font-family="Arial" fill="#ffffff" font-weight="700">Role</text>
+<rect x="340" y="170" width="260" height="54" fill="#1e293b" stroke="#334155"/>
+<text x="352" y="203" font-size="16" font-family="Arial" fill="#ffffff" font-weight="700">Application</text>
+<rect x="600" y="170" width="150" height="54" fill="#1e293b" stroke="#334155"/>
+<text x="612" y="203" font-size="16" font-family="Arial" fill="#ffffff" font-weight="700">Access</text>
+<rect x="750" y="170" width="490" height="54" fill="#1e293b" stroke="#334155"/>
+<text x="762" y="203" font-size="16" font-family="Arial" fill="#ffffff" font-weight="700">Justification</text>
+<rect x="40" y="224" width="300" height="54" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="50" y="256" font-size="14" font-family="Arial" fill="#0f172a">Billing Specialist</text>
+<rect x="340" y="224" width="260" height="54" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="350" y="256" font-size="14" font-family="Arial" fill="#0f172a">Billing App</text>
+<rect x="600" y="224" width="150" height="54" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="610" y="256" font-size="14" font-family="Arial" fill="#0f172a">Editor</text>
+<rect x="750" y="224" width="490" height="54" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="760" y="256" font-size="14" font-family="Arial" fill="#0f172a">Needed for daily billing tasks</text>
+<rect x="40" y="278" width="300" height="54" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="50" y="310" font-size="14" font-family="Arial" fill="#0f172a">Billing Specialist</text>
+<rect x="340" y="278" width="260" height="54" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="350" y="310" font-size="14" font-family="Arial" fill="#0f172a">CRM</text>
+<rect x="600" y="278" width="150" height="54" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="610" y="310" font-size="14" font-family="Arial" fill="#0f172a">Viewer</text>
+<rect x="750" y="278" width="490" height="54" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="760" y="310" font-size="14" font-family="Arial" fill="#0f172a">View customer records only</text>
+<rect x="40" y="332" width="300" height="54" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="50" y="364" font-size="14" font-family="Arial" fill="#0f172a">Finance Analyst</text>
+<rect x="340" y="332" width="260" height="54" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="350" y="364" font-size="14" font-family="Arial" fill="#0f172a">Billing App</text>
+<rect x="600" y="332" width="150" height="54" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="610" y="364" font-size="14" font-family="Arial" fill="#0f172a">Editor</text>
+<rect x="750" y="332" width="490" height="54" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="760" y="364" font-size="14" font-family="Arial" fill="#0f172a">Reconciliation duties</text>
+<rect x="40" y="386" width="300" height="54" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="50" y="418" font-size="14" font-family="Arial" fill="#0f172a">Sales Associate</text>
+<rect x="340" y="386" width="260" height="54" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="350" y="418" font-size="14" font-family="Arial" fill="#0f172a">CRM</text>
+<rect x="600" y="386" width="150" height="54" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="610" y="418" font-size="14" font-family="Arial" fill="#0f172a">Editor</text>
+<rect x="750" y="386" width="490" height="54" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="760" y="418" font-size="14" font-family="Arial" fill="#0f172a">Customer updates</text>
+<rect x="40" y="440" width="300" height="54" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="50" y="472" font-size="14" font-family="Arial" fill="#0f172a">Operations Manager</text>
+<rect x="340" y="440" width="260" height="54" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="350" y="472" font-size="14" font-family="Arial" fill="#0f172a">CRM Admin</text>
+<rect x="600" y="440" width="150" height="54" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="610" y="472" font-size="14" font-family="Arial" fill="#0f172a">Admin</text>
+<rect x="750" y="440" width="490" height="54" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="760" y="472" font-size="14" font-family="Arial" fill="#0f172a">Workflow ownership</text>
+<rect x="40" y="494" width="300" height="54" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="50" y="526" font-size="14" font-family="Arial" fill="#0f172a">IT Administrator</text>
+<rect x="340" y="494" width="260" height="54" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="350" y="526" font-size="14" font-family="Arial" fill="#0f172a">Admin Console</text>
+<rect x="600" y="494" width="150" height="54" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="610" y="526" font-size="14" font-family="Arial" fill="#0f172a">Super Admin</text>
+<rect x="750" y="494" width="490" height="54" fill="#f1f5f9" stroke="#cbd5e1"/>
+<text x="760" y="526" font-size="14" font-family="Arial" fill="#0f172a">System administration</text>
+<text x="40" y="720" font-size="17" font-family="Arial" fill="#475569">Synthetic screenshot for GitHub README and public security portfolio documentation</text>
+</svg>

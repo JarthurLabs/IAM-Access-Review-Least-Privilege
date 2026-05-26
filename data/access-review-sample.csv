@@ -1,0 +1,7 @@
+user_id,name,role,application,current_access,decision,rationale
+USR-001,Jamal Smith,Billing Specialist,Google Drive Billing Folder,Viewer,Keep,Matches job role
+USR-002,Maya Turner,Operations Manager,CRM Admin Console,Admin,Approve,Role requires workflow admin
+USR-003,Alex Lee,Former Contractor,Slack Workspace,Member,Remove,Contract ended
+USR-004,Keisha Davis,Finance Analyst,Billing App,Editor,Keep,Required for billing reconciliation
+USR-005,Ravi Patel,IT Administrator,Google Admin Console,Super Admin,Approve,Privileged role documented
+USR-006,Olivia Chen,Sales Associate,Customer Export Folder,Editor,Reduce,No current business need
