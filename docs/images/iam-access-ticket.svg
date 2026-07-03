@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+  <rect width="900" height="500" fill="#eef2ff"/>
+  <rect x="70" y="50" width="760" height="390" rx="8" fill="#ffffff" stroke="#3730a3" stroke-width="2"/>
+  <rect x="70" y="50" width="760" height="60" fill="#3730a3"/>
+  <text x="100" y="88" font-family="Arial" font-size="23" font-weight="bold" fill="#ffffff">Example IAM review finding</text>
+  <text x="650" y="88" font-family="Arial" font-size="15" fill="#c7d2fe">Decision: REMOVE</text>
+
+  <text x="105" y="148" font-family="Arial" font-size="13" fill="#64748b">Account</text>
+  <text x="235" y="148" font-family="Arial" font-size="16" fill="#111827">former.contractor</text>
+  <line x1="105" y1="162" x2="790" y2="162" stroke="#e5e7eb"/>
+
+  <text x="105" y="197" font-family="Arial" font-size="13" fill="#64748b">Issue</text>
+  <text x="235" y="197" font-family="Arial" font-size="16" fill="#111827">Former contractor account still active</text>
+  <line x1="105" y1="211" x2="790" y2="211" stroke="#e5e7eb"/>
+
+  <text x="105" y="246" font-family="Arial" font-size="13" fill="#64748b">Risk</text>
+  <text x="235" y="246" font-family="Arial" font-size="16" fill="#111827">Access no longer has a business owner or active job need</text>
+  <line x1="105" y1="260" x2="790" y2="260" stroke="#e5e7eb"/>
+
+  <text x="105" y="295" font-family="Arial" font-size="13" fill="#64748b">Evidence</text>
+  <text x="235" y="295" font-family="Arial" font-size="16" fill="#111827">User status does not match access state in review sample</text>
+  <line x1="105" y1="309" x2="790" y2="309" stroke="#e5e7eb"/>
+
+  <text x="105" y="344" font-family="Arial" font-size="13" fill="#64748b">Action</text>
+  <text x="235" y="344" font-family="Arial" font-size="16" fill="#111827">Disable account, revoke sessions, confirm offboarding evidence</text>
+  <line x1="105" y1="358" x2="790" y2="358" stroke="#e5e7eb"/>
+
+  <text x="105" y="393" font-family="Arial" font-size="13" fill="#64748b">Follow-up</text>
+  <text x="235" y="393" font-family="Arial" font-size="16" fill="#111827">Add expiration dates for contractor access going forward</text>
+</svg>
