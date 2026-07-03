@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420">
+  <rect width="980" height="420" fill="#f5f7fb"/>
+  <text x="45" y="55" font-family="Trebuchet MS, Arial" font-size="30" fill="#102a43">IAM access review: the path from messy to defensible</text>
+  <text x="48" y="84" font-family="Trebuchet MS, Arial" font-size="15" fill="#52606d">The goal was not to remove access randomly. It was to make every permission have a reason.</text>
+
+  <rect x="60" y="135" width="180" height="95" rx="13" fill="#fff7d6" stroke="#9f580a" stroke-width="2"/>
+  <text x="82" y="170" font-family="Trebuchet MS" font-size="18" fill="#3b2f09">User list</text>
+  <text x="82" y="197" font-family="Trebuchet MS" font-size="14" fill="#4b5563">active, contractor, role</text>
+
+  <path d="M250 180 C285 160, 315 161, 350 181" stroke="#334155" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M337 169 L352 181 L336 193" stroke="#334155" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <rect x="365" y="127" width="195" height="112" rx="8" fill="#e0f2fe" stroke="#075985" stroke-width="2" transform="rotate(-1.1 365 127)"/>
+  <text x="391" y="164" font-family="Trebuchet MS" font-size="18" fill="#0c4a6e">Role check</text>
+  <text x="391" y="191" font-family="Trebuchet MS" font-size="14" fill="#334155">does access match job?</text>
+  <text x="391" y="214" font-family="Trebuchet MS" font-size="14" fill="#334155">is admin justified?</text>
+
+  <path d="M575 184 C616 199, 650 198, 688 185" stroke="#334155" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M674 178 L690 184 L678 198" stroke="#334155" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <rect x="705" y="132" width="205" height="102" rx="12" fill="#dcfce7" stroke="#166534" stroke-width="2" transform="rotate(0.8 705 132)"/>
+  <text x="730" y="166" font-family="Trebuchet MS" font-size="18" fill="#14532d">Decision</text>
+  <text x="730" y="194" font-family="Trebuchet MS" font-size="14" fill="#334155">keep / reduce / remove</text>
+
+  <rect x="96" y="287" width="764" height="65" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="124" y="326" font-family="Courier New" font-size="15" fill="#334155">Small lesson: “because they always had it” is not an access justification.</text>
+</svg>
