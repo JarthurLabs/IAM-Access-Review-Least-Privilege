@@ -1,0 +1,85 @@
+{
+  "workflow": "live_keycloak_mover_least_privilege",
+  "executed_utc": "2026-07-11T15:43:30.521661+00:00",
+  "platform": "Keycloak 26.0.7 (ephemeral GitHub Actions container)",
+  "realm": "iam-lab",
+  "subject": "lab.mover01",
+  "custom_attribute_policy": "ADMIN_EDIT (administrator context only)",
+  "before": {
+    "department": "Sales",
+    "title": "Account Executive",
+    "groups": [
+      "APP-CRM-Editors"
+    ]
+  },
+  "approved_change": {
+    "department": "Security Operations",
+    "title": "SOC Analyst",
+    "remove_group": "APP-CRM-Editors",
+    "add_group": "SEC-SIEM-Readers"
+  },
+  "after": {
+    "department": "Security Operations",
+    "title": "SOC Analyst",
+    "groups": [
+      "SEC-SIEM-Readers"
+    ]
+  },
+  "validation": {
+    "status": "passed",
+    "checks": {
+      "before_department_sales": true,
+      "before_title_account_executive": true,
+      "before_old_group_present": true,
+      "before_new_group_absent": true,
+      "after_old_group_absent": true,
+      "after_new_group_present": true,
+      "department_updated": true,
+      "title_updated": true
+    }
+  },
+  "admin_event_count": 8,
+  "admin_events": [
+    {
+      "operation_type": "CREATE",
+      "resource_type": "GROUP_MEMBERSHIP",
+      "resource_path": "users/<LAB_USER_ID>/groups/<NEW_GROUP_ID>"
+    },
+    {
+      "operation_type": "DELETE",
+      "resource_type": "GROUP_MEMBERSHIP",
+      "resource_path": "users/<LAB_USER_ID>/groups/<OLD_GROUP_ID>"
+    },
+    {
+      "operation_type": "UPDATE",
+      "resource_type": "USER",
+      "resource_path": "users/<LAB_USER_ID>"
+    },
+    {
+      "operation_type": "CREATE",
+      "resource_type": "GROUP_MEMBERSHIP",
+      "resource_path": "users/<LAB_USER_ID>/groups/<OLD_GROUP_ID>"
+    },
+    {
+      "operation_type": "CREATE",
+      "resource_type": "USER",
+      "resource_path": "users/<LAB_USER_ID>"
+    },
+    {
+      "operation_type": "CREATE",
+      "resource_type": "GROUP",
+      "resource_path": "groups/<NEW_GROUP_ID>"
+    },
+    {
+      "operation_type": "CREATE",
+      "resource_type": "GROUP",
+      "resource_path": "groups/<OLD_GROUP_ID>"
+    },
+    {
+      "operation_type": "UPDATE",
+      "resource_type": "USER_PROFILE",
+      "resource_path": "users/profile"
+    }
+  ],
+  "privacy": "All identities and entitlements are controlled lab objects; admin credentials are ephemeral and are not retained."
+}
