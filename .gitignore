@@ -1,0 +1,9 @@
+.env
+.env.*
+private/
+raw/
+*.secret.*
+*.token
+*unredacted*
+__pycache__/
+*.pyc
