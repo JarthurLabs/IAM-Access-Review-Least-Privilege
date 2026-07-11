@@ -17,9 +17,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Generate masked ephemeral admin credential
+        run: |
+          admin_password="$(openssl rand -hex 32)"
+          echo "::add-mask::$admin_password"
+          echo "ADMIN_PASSWORD=$admin_password" >> "$GITHUB_ENV"
+
       - name: Start ephemeral Keycloak realm host
-        env:
-          ADMIN_PASSWORD: keycloak-${{ github.run_id }}-${{ github.run_attempt }}
         run: |
           docker run -d --name keycloak -p 8080:8080 \
             -e KC_BOOTSTRAP_ADMIN_USERNAME=admin \
@@ -35,8 +39,6 @@ jobs:
           exit 1
 
       - name: Execute mover and least-privilege workflow
-        env:
-          ADMIN_PASSWORD: keycloak-${{ github.run_id }}-${{ github.run_attempt }}
         run: |
           python3 scripts/run_keycloak_mover_workflow.py \
             --base-url http://localhost:8080 \
