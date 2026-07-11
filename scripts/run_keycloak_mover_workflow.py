@@ -57,7 +57,37 @@ def get_user(base_url, token, realm, username):
     users, _ = request("GET", f"{base_url}/admin/realms/{realm}/users?{query}", token=token, expected=(200,))
     if len(users) != 1:
         raise RuntimeError(f"Expected one user named {username}; got {len(users)}")
-    return users[0]
+    user, _ = request(
+        "GET",
+        f"{base_url}/admin/realms/{realm}/users/{users[0]['id']}",
+        token=token,
+        expected=(200,),
+    )
+    return user
+
+
+def enable_admin_managed_attributes(base_url, token, realm):
+    """Allow realm administrators to manage lab-only custom attributes.
+
+    Keycloak disables unmanaged user attributes by default.  The mover lab uses
+    department and title as administrator-controlled directory attributes, so
+    ADMIN_EDIT is the narrow policy that permits those writes without exposing
+    unmanaged attributes to end-user profile contexts.
+    """
+    profile, _ = request(
+        "GET",
+        f"{base_url}/admin/realms/{realm}/users/profile",
+        token=token,
+        expected=(200,),
+    )
+    profile["unmanagedAttributePolicy"] = "ADMIN_EDIT"
+    request(
+        "PUT",
+        f"{base_url}/admin/realms/{realm}/users/profile",
+        token=token,
+        json_body=profile,
+        expected=(200,),
+    )
 
 
 def get_group(base_url, token, realm, name):
@@ -157,6 +187,7 @@ def main():
         },
         expected=(201,),
     )
+    enable_admin_managed_attributes(base_url, token, realm)
     for group_name in (old_group_name, new_group_name):
         request(
             "POST",
@@ -220,6 +251,8 @@ def main():
     after_department = after_user.get("attributes", {}).get("department", [""])[0]
     after_title = after_user.get("attributes", {}).get("title", [""])[0]
     checks = {
+        "before_department_sales": before_department == "Sales",
+        "before_title_account_executive": before_title == "Account Executive",
         "before_old_group_present": old_group_name in before_groups,
         "before_new_group_absent": new_group_name not in before_groups,
         "after_old_group_absent": old_group_name not in after_groups,
@@ -257,6 +290,7 @@ def main():
         "platform": "Keycloak 26.0.7 (ephemeral GitHub Actions container)",
         "realm": realm,
         "subject": username,
+        "custom_attribute_policy": "ADMIN_EDIT (administrator context only)",
         "before": {"department": before_department, "title": before_title, "groups": before_groups},
         "approved_change": {
             "department": "Security Operations",
