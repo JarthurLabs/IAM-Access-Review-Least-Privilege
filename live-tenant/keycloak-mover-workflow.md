@@ -52,8 +52,9 @@ Successful runs write:
 
 - The realm and identities are created solely for the lab.
 - No external people or production data are used.
-- The bootstrap administrator password is generated from the workflow run and
-  exists only for the ephemeral container.
+- The bootstrap administrator password is randomly generated for each run,
+  masked from logs, kept only in the runner environment, and destroyed with
+  the ephemeral container.
 - Raw tokens and credentials are never committed.
 - Resource identifiers are replaced with labels in the public evidence.
 
