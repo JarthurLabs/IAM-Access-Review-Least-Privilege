@@ -1,6 +1,6 @@
 {
   "workflow": "live_keycloak_mover_least_privilege",
-  "executed_utc": "2026-07-11T15:43:30.521661+00:00",
+  "executed_utc": "2026-07-11T15:47:53.862323+00:00",
   "platform": "Keycloak 26.0.7 (ephemeral GitHub Actions container)",
   "realm": "iam-lab",
   "subject": "lab.mover01",
