@@ -1,0 +1,81 @@
+name: Run live Keycloak IAM workflow
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/live-keycloak-iam.yml"
+      - "scripts/run_keycloak_mover_workflow.py"
+
+permissions:
+  contents: write
+
+jobs:
+  mover-workflow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start ephemeral Keycloak realm host
+        env:
+          ADMIN_PASSWORD: keycloak-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          docker run -d --name keycloak -p 8080:8080 \
+            -e KC_BOOTSTRAP_ADMIN_USERNAME=admin \
+            -e KC_BOOTSTRAP_ADMIN_PASSWORD="$ADMIN_PASSWORD" \
+            quay.io/keycloak/keycloak:26.0.7 start-dev
+          for attempt in {1..60}; do
+            if curl -fsS http://localhost:8080/realms/master >/dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          docker logs keycloak
+          exit 1
+
+      - name: Execute mover and least-privilege workflow
+        env:
+          ADMIN_PASSWORD: keycloak-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          python3 scripts/run_keycloak_mover_workflow.py \
+            --base-url http://localhost:8080 \
+            --admin-user admin \
+            --admin-password "$ADMIN_PASSWORD" \
+            --output-dir live-tenant/evidence
+
+      - name: Verify evidence structure
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          evidence = json.loads(Path("live-tenant/evidence/keycloak_mover_evidence.json").read_text())
+          assert evidence["validation"]["status"] == "passed"
+          assert evidence["before"]["groups"] == ["APP-CRM-Editors"]
+          assert evidence["after"]["groups"] == ["SEC-SIEM-Readers"]
+          assert evidence["admin_event_count"] > 0
+          print("Live Keycloak evidence verified")
+          PY
+
+      - name: Upload workflow evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: keycloak-mover-evidence-${{ github.run_id }}
+          path: live-tenant/evidence/
+          retention-days: 30
+
+      - name: Commit verified evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add live-tenant/evidence/keycloak_mover_evidence.json live-tenant/evidence/keycloak_change_record.md
+          if git diff --cached --quiet; then
+            echo "Evidence is already current"
+            exit 0
+          fi
+          git commit -m "Record verified live Keycloak mover workflow evidence"
+          git push
+
+      - name: Show Keycloak logs on failure
+        if: failure()
+        run: docker logs keycloak || true
